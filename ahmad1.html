@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="your_backend_processing_page.php" method="post">
+        <h2>Login</h2>
+
+        <!-- Organization Fields -->
+        <div id="organizationFields">
+            <label for="orgName">Org Name:</label>
+            <input type="text" id="orgName" name="orgName" required>
+
+            <label for="employeeName">Employee Name:</label>
+            <input type="text" id="employeeName" name="employeeName" required>
+
+            <label for="orgEmail">Email:</label>
+            <input type="email" id="orgEmail" name="orgEmail" required>
+
+            <label for="orgPassword">Password:</label>
+            <input type="password" id="orgPassword" name="orgPassword" required>
+
+            <label for="orgPin">Pin:</label>
+            <input type="text" id="orgPin" name="orgPin" required>
+        </div>
+
+        <!-- Volunteer Fields -->
+        <div id="volunteerFields" style="display: none;">
+            <label for="volunteerName">Name:</label>
+            <input type="text" id="volunteerName" name="volunteerName" required>
+
+            <label for="volunteerAge">Age:</label>
+            <input type="text" id="volunteerAge" name="volunteerAge" required>
+
+            <label for="volunteerGender">Gender:</label>
+            <select id="volunteerGender" name="volunteerGender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <label for="volunteerSchool">School:</label>
+            <input type="text" id="volunteerSchool" name="volunteerSchool" required>
+
+            <label for="volunteerEmail">Email:</label>
+            <input type="email" id="volunteerEmail" name="volunteerEmail" required>
+
+            <label for="volunteerPassword">Password:</label>
+            <input type="password" id="volunteerPassword" name="volunteerPassword" required>
+        </div>
+
+        <!-- Administrator Fields -->
+        <div id="adminFields" style="display: none;">
+            <label for="adminName">Name:</label>
+            <input type="text" id="adminName" name="adminName" required>
+
+            <label for="adminEmail">Email:</label>
+            <input type="email" id="adminEmail" name="adminEmail" required>
+
+            <label for="adminPassword">Password:</label>
+            <input type="password" id="adminPassword" name="adminPassword" required>
+
+            <label for="adminPin">Pin:</label>
+            <input type="text" id="adminPin" name="adminPin" required>
+        </div>
+
+        <label for="userType">Select User Type:</label>
+        <select id="userType" name="userType" onchange="toggleFields()" required>
+            <option value="organization">Organization</option>
+            <option value="volunteer">Volunteer</option>
+            <option value="admin">Administrator</option>
+        </select>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        function toggleFields() {
+            var userType = document.getElementById("userType").value;
+
+            document.getElementById("organizationFields").style.display = userType === "organization" ? "block" : "none";
+            document.getElementById("volunteerFields").style.display = userType === "volunteer" ? "block" : "none";
+            document.getElementById("adminFields").style.display = userType === "admin" ? "block" : "none";
+        }
+    </script>
+
+</body>
+</html>
